@@ -1,17 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+
+const lakeList = [
+  "Echo Lake", 
+  "Maud Lake", 
+  "Cascade Lake"
+];
+
+
+function App({lakes}) {
+  return (
+    <ul>
+      {lakes.map(lake => (
+      <li>{lake}</li>
+      ))}
+    </ul>
+  );
+
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <App lakes={lakeList} />,
   document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+
