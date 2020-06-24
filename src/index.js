@@ -1,31 +1,34 @@
-import React from 'react';
+import React, {useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-function Lake() {
-  return (
-    <h1>Lake!</h1>
-  );
-}
 
-function SkiResort() {
-  return (
-      <h1>Ski Resort!</h1>
-  );
-}
+function Checkbox() {
+  const [checked, setChecked] = useState(false);
+  useEffect(() => {
+    alert(`checked: ${checked.toString()}`);
+  });
 
-function App() {
   return (
     <>
-      <Lake />
-      <SkiResort />
+      <input 
+      type="checkbox"
+       value={checked}
+       onChange={() =>
+       setChecked(checked => !checked)
+      }
+       />
+      {checked ? "checked" : "not checked"}
     </>
   );
 }
 
 ReactDOM.render(
-  <App />,
+  <Checkbox />,
   document.getElementById('root')
 );
+
+
+
 
 
